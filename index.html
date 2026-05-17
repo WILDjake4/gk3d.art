@@ -4,6 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graydon Keane — 3D Modeller & Texture Artist</title>
+<meta name="description" content="Graydon Keane — Self-taught 3D modeller and texture artist based in Melbourne, Australia. 7+ years of experience creating hard-surface models, weapons, props, and game-ready assets in Blender, Substance Painter, and Marmoset Toolbag.">
+<meta name="keywords" content="3D modeller, texture artist, Blender, Substance Painter, Marmoset Toolbag, game assets, hard surface, PBR, Melbourne, freelance">
+<meta name="author" content="Graydon Keane">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gk3d.art">
+
+<!-- Open Graph (link previews on social/Discord) -->
+<meta property="og:title" content="Graydon Keane — 3D Modeller & Texture Artist">
+<meta property="og:description" content="Self-taught 3D artist specialising in hard-surface modelling, game-ready assets, and real-time optimisation. 7+ years experience.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gk3d.art">
+<!-- ✏️ OG IMAGE: Upload a 1200x630 preview image to Cloudinary and paste URL below -->
+<meta property="og:image" content="https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Graydon Keane — 3D Modeller & Texture Artist">
+<meta name="twitter:description" content="Self-taught 3D artist specialising in hard-surface modelling, game-ready assets, and real-time optimisation.">
+<meta name="twitter:image" content="https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png">
+
+<!-- ✏️ FAVICON: Replace with your own .png icon (32x32 recommended) -->
+<!-- Upload a favicon to Cloudinary or put a favicon.png in your GitHub repo root -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Graydon Keane",
+  "url": "https://gk3d.art",
+  "jobTitle": "3D Modeller & Texture Artist",
+  "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressCountry": "AU" },
+  "knowsAbout": ["3D Modelling", "Texture Art", "Blender", "Substance Painter", "Marmoset Toolbag", "Hard Surface Modelling", "PBR Texturing"],
+  "description": "Self-taught 3D modeller and texture artist with 7+ years experience creating game-ready assets."
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -107,12 +148,13 @@ nav.scrolled { padding: 14px 0; background: rgba(7,8,10,0.92); }
 .card-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
 .card-tag { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; background: rgba(255,255,255,0.04); color: var(--text-muted); border: 1px solid var(--border); }
-.lightbox-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.96); display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
-.lightbox-overlay.active { opacity: 1; pointer-events: all; }
+.lightbox-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.96); display: none; }
+.lightbox-overlay.active { display: block; animation: lbFadeIn 0.3s ease forwards; }
+@keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
 .lightbox-close { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: white; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-fast); z-index: 2010; }
 .lightbox-close:hover { background: rgba(255,255,255,0.15); border-color: var(--accent); }
 .lightbox-counter { position: fixed; top: 28px; left: 28px; font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); letter-spacing: 1px; z-index: 2010; }
-.lightbox-slider { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.lightbox-slider { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2001; }
 .lightbox-slider img, .lightbox-slider video { max-width: 92vw; max-height: 85vh; width: auto; height: auto; object-fit: contain; border-radius: 4px; opacity: 0; position: absolute; transition: opacity 0.4s ease; pointer-events: none; }
 .lightbox-slider img.active, .lightbox-slider video.active { opacity: 1; pointer-events: auto; }
 .lightbox-slider video.active { cursor: pointer; }
@@ -124,9 +166,10 @@ nav.scrolled { padding: 14px 0; background: rgba(7,8,10,0.92); }
 .slider-arrow:hover { background: rgba(0,0,0,0.6); border-color: var(--accent); }
 .slider-arrow.prev { left: 16px; }
 .slider-arrow.next { right: 16px; }
-.lightbox-info-toggle { position: fixed; bottom: 20px; right: 24px; padding: 8px 16px; border-radius: 60px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; cursor: pointer; transition: var(--transition-fast); z-index: 2010; }
-.lightbox-info-toggle:hover { background: rgba(255,255,255,0.14); color: var(--text-primary); border-color: var(--accent); }
-.lightbox-info { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85) 20%, rgba(7,8,10,0.97)); padding: 60px 40px 36px; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2005; display: flex; gap: 40px; align-items: flex-end; }
+.lightbox-info-toggle { position: fixed; bottom: 20px; right: 24px; padding: 10px 20px; border-radius: 60px; background: rgba(0,229,160,0.1); border: 1.5px solid var(--accent); color: var(--accent); font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: var(--transition-fast); z-index: 2010; }
+.lightbox-info-toggle:hover { background: rgba(0,229,160,0.2); color: var(--text-primary); }
+.lightbox-info-toggle.panel-open { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: var(--text-secondary); }
+.lightbox-info { position: fixed; bottom: 0; left: 0; right: 0; max-height: 50vh; overflow-y: auto; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88) 30px, rgba(7,8,10,0.98)); padding: 50px 40px 40px; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2005; display: flex; gap: 40px; align-items: flex-start; }
 .lightbox-info.visible { transform: translateY(0); }
 .lightbox-info-main { flex: 1; min-width: 0; }
 .lightbox-info .card-category { position: static; display: inline-block; margin-bottom: 10px; }
@@ -167,6 +210,20 @@ nav.scrolled { padding: 14px 0; background: rgba(7,8,10,0.92); }
 .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 .contact-link { display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 60px; border: 1.5px solid var(--border); font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: var(--transition); }
 .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.contact-form-wrapper { max-width: 640px; margin: 48px auto 0; text-align: left; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.form-input { padding: 14px 18px; background: var(--bg-card); border: 1.5px solid var(--border); border-radius: var(--radius); font-family: var(--font-display); font-size: 14px; color: var(--text-primary); transition: var(--transition-fast); outline: none; resize: vertical; }
+.form-input::placeholder { color: var(--text-muted); }
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+.form-textarea { min-height: 120px; }
+.contact-form .btn-primary { align-self: flex-start; margin-top: 4px; }
+.form-status { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px; margin-top: 8px; }
+.form-status.success { color: var(--accent); }
+.form-status.error { color: #ff6b6b; }
+@media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
 footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; font-size: 13px; color: var(--text-muted); }
 .marquee-section { overflow: hidden; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
@@ -297,12 +354,39 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: cente
   <div class="container">
     <div class="section-tag reveal">// Let's Work Together</div>
     <h2 class="section-title reveal reveal-delay-1">Get In Touch</h2>
-    <p class="contact-subtitle reveal reveal-delay-2">Available for freelance work, commissions, and studio collaborations.</p>
+    <p class="contact-subtitle reveal reveal-delay-2">Available for freelance work, commissions, and full-time positions.</p>
     <div class="contact-links reveal reveal-delay-3">
-      <a href="mailto:your@email.com" class="contact-link">✉ Email</a>
-      <a href="#" class="contact-link">𝕏 Twitter</a>
-      <a href="#" class="contact-link">◆ ArtStation</a>
-      <a href="#" class="contact-link">⬡ Discord</a>
+      <!-- ✏️ CONTACT LINKS: Replace the # with your actual URLs -->
+      <a href="mailto:wildjake4@gmail.com" class="contact-link">✉ Email</a>
+      <a href="https://x.com/graaydon" target="_blank" rel="noopener" class="contact-link">𝕏 Twitter</a>
+      <a href="https://www.artstation.com/graydonn" target="_blank" rel="noopener" class="contact-link">◆ ArtStation</a>
+      <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener" class="contact-link">⬡ Discord</a>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form-wrapper reveal reveal-delay-4">
+      <form class="contact-form" id="contactForm" onsubmit="return handleContactForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="contactName">Name</label>
+            <input type="text" id="contactName" name="name" class="form-input" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" name="email" class="form-input" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contactSubject">Subject</label>
+          <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message →</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -531,6 +615,8 @@ function openLightbox(idx) {
 
   // Hide info panel on open
   info.classList.remove('visible');
+  document.getElementById('lightboxToggle').classList.remove('panel-open');
+  document.getElementById('lightboxToggle').textContent = 'ⓘ INFO';
 
   if (currentMedia.length > 0) {
     const mediaHtml = currentMedia.map((src, i) => {
@@ -598,12 +684,17 @@ function closeLightbox() {
   document.querySelectorAll('#lightboxSlider video').forEach(v => v.pause());
   document.getElementById('lightbox').classList.remove('active');
   document.getElementById('lightboxInfo').classList.remove('visible');
-  document.querySelectorAll('.slider-arrow, .slider-nav').forEach(el => el.remove());
+  document.getElementById('lightboxToggle').classList.remove('panel-open');
+  document.querySelectorAll('#lightbox .slider-arrow, #lightbox .slider-nav').forEach(el => el.remove());
   document.body.style.overflow = '';
 }
 
 function toggleInfo() {
-  document.getElementById('lightboxInfo').classList.toggle('visible');
+  const info = document.getElementById('lightboxInfo');
+  const btn = document.getElementById('lightboxToggle');
+  info.classList.toggle('visible');
+  btn.classList.toggle('panel-open');
+  btn.textContent = info.classList.contains('visible') ? '✕ CLOSE' : 'ⓘ INFO';
 }
 
 function slideNav(dir) {
@@ -636,7 +727,8 @@ function updateSlider() {
 }
 
 document.getElementById('lightbox').addEventListener('click', e => {
-  if (e.target === document.getElementById('lightbox') || e.target === document.getElementById('lightboxSlider')) closeLightbox();
+  const target = e.target;
+  if (target.id === 'lightbox' || target.id === 'lightboxSlider') closeLightbox();
 });
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lightbox').classList.contains('active')) return;
@@ -682,6 +774,66 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTACT FORM
+   ═══════════════════════════════════════════════════════════════════
+   Option 1 (EASY): Use Formspree — free for 50 submissions/month.
+     1. Go to https://formspree.io and sign up (free)
+     2. Create a new form, copy your form ID (looks like: xpwzagkr)
+     3. Replace YOUR_FORM_ID below
+
+   Option 2: Use mailto fallback (no server needed, opens email client)
+     Set FORMSPREE_ID to "" and it will fall back to mailto.
+   ═══════════════════════════════════════════════════════════════════ */
+const FORMSPREE_ID = ""; // ✏️ Paste your Formspree form ID here, e.g. "xpwzagkr"
+const FALLBACK_EMAIL = "wildjake4@gmail.com"; // ✏️ Your email for mailto fallback
+
+function handleContactForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const btn = document.getElementById('contactSubmit');
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const subject = document.getElementById('contactSubject').value;
+  const message = document.getElementById('contactMessage').value;
+
+  if (FORMSPREE_ID) {
+    // Send via Formspree
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, _subject: subject || 'Portfolio Contact', message })
+    }).then(res => {
+      if (res.ok) {
+        status.textContent = '✓ Message sent! I\'ll get back to you soon.';
+        status.className = 'form-status success';
+        form.reset();
+      } else {
+        status.textContent = '✕ Something went wrong. Try emailing me directly.';
+        status.className = 'form-status error';
+      }
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    }).catch(() => {
+      status.textContent = '✕ Network error. Try emailing me directly.';
+      status.className = 'form-status error';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    });
+  } else {
+    // Mailto fallback
+    const mailSubject = encodeURIComponent(subject || 'Portfolio Inquiry');
+    const mailBody = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+    window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${mailSubject}&body=${mailBody}`;
+    status.textContent = 'Opening your email client...';
+    status.className = 'form-status success';
+  }
+  return false;
+}
 </script>
 </body>
 </html>
