@@ -1175,32 +1175,58 @@ footer {
 
 <script>
 /* ═══════════════════════════════════════════════════════════════════
+   ✏️ YOUR CLOUDINARY CLOUD NAME
+   ═══════════════════════════════════════════════════════════════════ */
+const CLOUD = "dge7ckqry";
+
+/* ═══════════════════════════════════════════════════════════════════
+   ✏️ HELPER — Builds a Cloudinary URL from just the filename
+   ═══════════════════════════════════════════════════════════════════
+   Usage:  img("portfolio/assault-rifle/render-01.jpg")
+   Output: Full Cloudinary URL with automatic quality + format
+   
+   The "f_auto,q_auto" part tells Cloudinary to:
+   - Serve WebP to browsers that support it (smaller files, same quality)
+   - Auto-pick the best compression level
+   So you upload your full 2K renders and it handles the rest.
+   ═══════════════════════════════════════════════════════════════════ */
+function img(path) {
+  return `https://res.cloudinary.com/${CLOUD}/image/upload/f_auto,q_auto/${path}`;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    ✏️ EDITABLE PORTFOLIO DATA
    ═══════════════════════════════════════════════════════════════════
    TO ADD A NEW PIECE:
-   Copy one of the objects below and fill in your details.
-   - title:       Name of the piece
-   - date:        When you made it (any format)
-   - category:    Used for filtering (e.g. "Weapons", "Props", "Environments")
-   - client:      Who it was for (optional, set to "" to hide)
-   - description: A short paragraph about the piece
-   - tags:        Array of technique/tool tags
-   - software:    Array of software used
-   - images:      Array of image URLs or paths. First image = thumbnail.
-                  Use "" for placeholder if you haven't added images yet.
+   1. Upload your images to Cloudinary in: portfolio/your-folder-name/
+   2. Copy one of the objects below
+   3. Fill in your details
+   4. For images, use:  img("portfolio/your-folder-name/filename.jpg")
+   5. First image = thumbnail on the card
 
    TO REMOVE A PIECE: Just delete the whole { ... } block.
    ═══════════════════════════════════════════════════════════════════ */
 const PORTFOLIO = [
   {
-    title: "Assault Rifle — Caliber",
-    date: "2021",
+    title: "Barrett MRAD .50 Cal - Portfolio",
+    date: "2024",
     category: "Weapons",
-    client: "IG Studios",
-    description: "Game-ready assault rifle modelled for Caliber. Full pipeline from blockout to final textured asset. Optimised for real-time rendering with clean topology and efficient UV layout.",
+    client: "",
+    description: "Realistic Barrett MRAD .50 cal modelled from reference. Full detail including the bolt assembly, rail system, muzzle brake. PBR textured with realism as a primary goal!",
     tags: ["Hard Surface", "Low Poly", "PBR", "Game Ready"],
-    software: ["Blender", "Substance Painter"],
-    images: [] // ✏️ Add your image URLs here, e.g. ["img/rifle-01.jpg", "img/rifle-02.jpg"]
+    software: ["Blender", "Marmoset Toolbag", "Substance Painter"],
+    // ✏️ Upload images to Cloudinary folder "portfolio/assault-rifle/" then uncomment:
+    // images: [
+    //   img("portfolio/assault-rifle/front.jpg"),
+    //   img("portfolio/assault-rifle/side.jpg"),
+    //   img("portfolio/assault-rifle/detail.jpg"),
+    // ]
+    images: [
+       "https://res.cloudinary.com/dge7ckqry/image/upload/v1779030967/CU1_eikmfo.png", 
+       "https://res.cloudinary.com/dge7ckqry/image/upload/v1779030969/CU2_nv7ss5.png",
+       "https://res.cloudinary.com/dge7ckqry/image/upload/v1779030972/LSide_nkzhsn.png",
+       "https://res.cloudinary.com/dge7ckqry/image/upload/v1779030973/RSide_nbx2by.png",
+    ]
   },
   {
     title: "Stylised Sword Collection",
@@ -1252,24 +1278,31 @@ const PORTFOLIO = [
     software: ["Blender", "Substance Painter"],
     images: []
   },
-  // ✏️ ADD MORE PIECES BELOW — copy the template:
+
+  // ═══════════════════════════════════════════════════════════════
+  // ✏️ ADD MORE PIECES — copy this template:
+  // ═══════════════════════════════════════════════════════════════
   // {
   //   title: "Your Piece Title",
   //   date: "2026",
-  //   category: "Weapons",  // or "Props", "Environments", "Characters", etc.
-  //   client: "Client Name", // or "" for personal work
+  //   category: "Weapons",       // or "Props", "Environments", "Characters", etc.
+  //   client: "Client Name",     // or "" for personal work
   //   description: "Describe the piece and what you did.",
   //   tags: ["Tag1", "Tag2"],
   //   software: ["Blender"],
-  //   images: ["path/to/image1.jpg", "path/to/image2.jpg"]
+  //   images: [
+  //     img("portfolio/your-folder/image1.jpg"),
+  //     img("portfolio/your-folder/image2.jpg"),
+  //   ]
   // },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════
    ✏️ HERO BACKGROUND IMAGE
-   Set this to your image path/URL, or leave "" for the placeholder.
+   Upload a hero image to Cloudinary and use the img() helper,
+   or paste a full URL, or leave "" for the placeholder.
    ═══════════════════════════════════════════════════════════════════ */
-const HERO_IMAGE = ""; // e.g. "img/hero-bg.jpg"
+const HERO_IMAGE = ""; // e.g. img("portfolio/hero-bg.jpg")
 
 
 /* ═══════════════════════════════════════════════════════════════════
