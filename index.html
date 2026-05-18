@@ -28,8 +28,8 @@
 
 <!-- ✏️ FAVICON: Replace with your own .png icon (32x32 recommended) -->
 <!-- Upload a favicon to Cloudinary or put a favicon.png in your GitHub repo root -->
-<link rel="icon" type="image/png" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779037951/32x32_xh1fx7.png">
-<link rel="apple-touch-icon" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779037951/32x32_xh1fx7.png">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779118467/Logo_64x64_r0k8js.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dge7ckqry/image/upload/v1779118467/Logo_64x64_r0k8js.png">
 
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -91,8 +91,9 @@ body::before { content: ''; position: fixed; inset: 0; z-index: 9999; pointer-ev
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; backdrop-filter: blur(20px) saturate(1.5); -webkit-backdrop-filter: blur(20px) saturate(1.5); background: rgba(7,8,10,0.7); border-bottom: 1px solid var(--border); transition: var(--transition); }
 nav.scrolled { padding: 14px 0; background: rgba(7,8,10,0.92); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.nav-logo { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; }
 .nav-logo span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-logo img { height: 28px; width: auto; margin-right: 10px; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary); transition: var(--transition-fast); position: relative; }
 .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--gradient-1); transition: var(--transition); }
@@ -239,7 +240,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: cente
 
 <nav id="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo"><span>GK</span> — Portfolio</a>
+    <a href="#" class="nav-logo"><img src="https://res.cloudinary.com/dge7ckqry/image/upload/v1779118467/Logo_64x64_r0k8js.png" alt="GK"><span>GK</span> — Portfolio</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
@@ -355,7 +356,6 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: cente
     <h2 class="section-title reveal reveal-delay-1">Get In Touch</h2>
     <p class="contact-subtitle reveal reveal-delay-2">Available for freelance work, commissions, and full-time positions.</p>
     <div class="contact-links reveal reveal-delay-3">
-      <!-- ✏️ CONTACT LINKS: Replace the # with your actual URLs -->
       <a href="mailto:wildjake4@gmail.com" class="contact-link">✉ Email</a>
       <a href="https://x.com/graaydon" target="_blank" rel="noopener" class="contact-link">𝕏 Twitter</a>
       <a href="https://www.artstation.com/graydonn" target="_blank" rel="noopener" class="contact-link">◆ ArtStation</a>
@@ -401,21 +401,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: cente
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════════
-   ✏️ YOUR CLOUDINARY CLOUD NAME
-   ═══════════════════════════════════════════════════════════════════ */
 const CLOUD = "dge7ckqry";
 
-/* ═══════════════════════════════════════════════════════════════════
-   ✏️ HELPERS
-   ═══════════════════════════════════════════════════════════════════
-   img("filename.png")  → optimised image URL
-   vid("filename.mp4")  → optimised video URL
-   Or just paste the full Cloudinary URL — both work fine.
-   
-   You can mix images and videos in the same media array.
-   Videos auto-play (muted) in the lightbox with full controls.
-   ═══════════════════════════════════════════════════════════════════ */
 function img(path) {
   return `https://res.cloudinary.com/${CLOUD}/image/upload/f_auto,q_auto/${path}`;
 }
@@ -426,12 +413,6 @@ function isVideo(url) {
   return /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url) || url.includes('/video/upload/');
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   ✏️ PORTFOLIO DATA
-   ═══════════════════════════════════════════════════════════════════
-   Each piece has a "media" array — mix images and videos freely.
-   First item = card thumbnail.
-   ═══════════════════════════════════════════════════════════════════ */
 const PORTFOLIO = [
   {
     title: "Barrett MRAD .50 Cal",
@@ -450,83 +431,53 @@ const PORTFOLIO = [
     ]
   },
   {
-    title: "Stylised Sword Collection",
-    date: "2025",
+    title: "M1911",
+    date: "Late 2025",
     category: "Weapons",
-    client: "NeQzon Studio",
-    description: "A set of stylised melee weapons designed for a Roblox RPG experience. Matched the existing art direction while pushing visual quality. Clean geometry optimised for Roblox's rendering pipeline.",
-    tags: ["Stylised", "Melee", "Roblox", "Game Ready"],
-    software: ["Blender", "Substance Painter"],
-    media: []
+    client: "",
+    description: "One of my most recent personal projects recreating the classic Colt M1911. I focused on keeping the proportions true to the original design and finding balance between detail and efficiency for real-time use. The model itself has 6.1k triangles.",
+    tags: ["Hard Surface", "Realistic", "PBR", "Portfolio"],
+    software: ["Blender", "Marmoset Toolbag", "Substance Painter"],
+    media: [
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/3_jdwlfr.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779031009/1_czergb.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/2_luiwc9.png",
+    ]
   },
   {
-    title: "Retail Store Environment",
-    date: "2024",
-    category: "Environments",
-    client: "iNoobe",
-    description: "Full environment set including shelving units, checkout counters, signage, and props for a multiplayer Roblox retail experience. Modular pieces designed for flexible level layout.",
-    tags: ["Environment", "Modular", "Props", "Roblox"],
-    software: ["Blender", "Substance Painter"],
-    media: []
-  },
-  {
-    title: "Nature & Foliage Pack",
+    title: "H&K USP",
     date: "2023",
-    category: "Props",
-    client: "iNoobe",
-    description: "Collection of trees, rocks, bushes, and ground cover created for outdoor Roblox environments. Focus on readable silhouettes and low polycount with strong shape language.",
-    tags: ["Foliage", "Stylised", "Optimised", "Roblox"],
-    software: ["Blender"],
-    media: []
+    category: "Weapons",
+    client: "Private Client",
+    description: "An older work of mine, the classic USP. This one certainly was a turning stone for my texturing and detailing capabilities. There was room for improvement modelling-wise. I spent more time on texturing and the tiny miniscule details like dust particles on the grip to cater to realism. The model itself has 13k triangles.",
+    tags: ["Hard Surface", "Realistic", "PBR", "Portfolio"],
+    software: ["Blender", "Marmoset Toolbag", "Substance Painter"],
+    media: [
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779119510/Right_Side_001_efevv2.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779119506/Right_Side_002_jwluq5.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779119507/Left_Side_001_ik2b3j.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779119508/Right_Side_ly0pot.png",
+      "https://res.cloudinary.com/dge7ckqry/video/upload/v1779119539/tbrender_epnwsf.mp4",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779119506/photograph_qutbye.png",
+      ]
   },
   {
-    title: "Weapon Arsenal Pack",
-    date: "2024",
+    title: "Demon Sword",
+    date: "2026",
     category: "Weapons",
     client: "iNoobe",
-    description: "Large-scale weapon pack spanning firearms, melee weapons, and throwables. Consistent art style across dozens of assets, all game-ready and performance-conscious.",
-    tags: ["Weapons", "Hard Surface", "Game Ready", "Batch"],
-    software: ["Blender", "Substance Painter", "Marmoset Toolbag"],
-    media: []
+    description: "A demon sword based off an old game Adventure Quest. This model turned out pretty awesome and unique. Certainly room for improvement, but there always is! The model itself is 7.5k triangles.",
+    tags: ["Weapons", "Hard Surface", "Game Ready", "Sword"],
+    software: ["Blender", "Marmoset Toolbag", "Substance Painter"],
+    media: [
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779120117/Demon_Sword_003_f4q1h2.png",
+      "https://res.cloudinary.com/dge7ckqry/image/upload/v1779120035/2026-05-19_01-59_k1x5pi.png",
+    ]
   },
-  {
-    title: "Building & Architecture Kit",
-    date: "2023",
-    category: "Environments",
-    client: "iNoobe",
-    description: "Modular building kit with walls, roofs, doors, windows, and structural elements. Designed for rapid level assembly with snapping-friendly geometry.",
-    tags: ["Architecture", "Modular", "Environment", "Roblox"],
-    software: ["Blender", "Substance Painter"],
-    media: []
-  },
-
-  // ═══════════════════════════════════════════════════════════════
-  // ✏️ ADD MORE PIECES — copy this template:
-  // ═══════════════════════════════════════════════════════════════
-  // {
-  //   title: "Your Piece Title",
-  //   date: "2026",
-  //   category: "Weapons",
-  //   client: "",
-  //   description: "Describe the piece.",
-  //   tags: ["Tag1", "Tag2"],
-  //   software: ["Blender"],
-  //   media: [
-  //     "https://res.cloudinary.com/dge7ckqry/image/upload/v.../filename.png",
-  //     "https://res.cloudinary.com/dge7ckqry/video/upload/v.../turntable.mp4",
-  //   ]
-  // },
 ];
 
-/* ═══════════════════════════════════════════════════════════════════
-   ✏️ HERO BACKGROUND IMAGE
-   ═══════════════════════════════════════════════════════════════════ */
 const HERO_IMAGE = "https://res.cloudinary.com/dge7ckqry/image/upload/v1779031012/4_srkihe.png";
-
-
-/* ═══════════════════════════════════════════════════════════════════
-   ENGINE — You probably don't need to edit below this line
-   ═══════════════════════════════════════════════════════════════════ */
 
 if (HERO_IMAGE) {
   document.getElementById('heroBg').outerHTML = `<img class="hero-bg-image" src="${HERO_IMAGE}" alt="Hero background">`;
@@ -612,7 +563,6 @@ function openLightbox(idx) {
   const info = document.getElementById('lightboxInfo');
   const counter = document.getElementById('lightboxCounter');
 
-  // Hide info panel on open
   info.classList.remove('visible');
   document.getElementById('lightboxToggle').classList.remove('panel-open');
   document.getElementById('lightboxToggle').textContent = 'ⓘ INFO';
@@ -634,7 +584,6 @@ function openLightbox(idx) {
     counter.textContent = '';
   }
 
-  // Build nav arrows (outside slider so they're fixed-position)
   document.querySelectorAll('.slider-arrow, .slider-nav').forEach(el => el.remove());
   if (currentMedia.length > 1) {
     const prevBtn = document.createElement('button');
@@ -774,19 +723,8 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 });
 
-/* ═══════════════════════════════════════════════════════════════════
-   CONTACT FORM
-   ═══════════════════════════════════════════════════════════════════
-   Option 1 (EASY): Use Formspree — free for 50 submissions/month.
-     1. Go to https://formspree.io and sign up (free)
-     2. Create a new form, copy your form ID (looks like: xpwzagkr)
-     3. Replace YOUR_FORM_ID below
-
-   Option 2: Use mailto fallback (no server needed, opens email client)
-     Set FORMSPREE_ID to "" and it will fall back to mailto.
-   ═══════════════════════════════════════════════════════════════════ */
-const FORMSPREE_ID = "mdajnqnz"; // ✏️ Paste your Formspree form ID here, e.g. "xpwzagkr"
-const FALLBACK_EMAIL = "wildjake4@gmail.com"; // ✏️ Your email for mailto fallback
+const FORMSPREE_ID = "mdajnqnz";
+const FALLBACK_EMAIL = "wildjake4@gmail.com";
 
 function handleContactForm(e) {
   e.preventDefault();
@@ -799,7 +737,6 @@ function handleContactForm(e) {
   const message = document.getElementById('contactMessage').value;
 
   if (FORMSPREE_ID) {
-    // Send via Formspree
     btn.textContent = 'Sending...';
     btn.disabled = true;
     fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -824,7 +761,6 @@ function handleContactForm(e) {
       btn.disabled = false;
     });
   } else {
-    // Mailto fallback
     const mailSubject = encodeURIComponent(subject || 'Portfolio Inquiry');
     const mailBody = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
     window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${mailSubject}&body=${mailBody}`;
